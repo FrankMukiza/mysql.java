@@ -136,18 +136,8 @@ public abstract class DaoBase {
     throw new DaoException("Unsupported class type: " + classType.getName());
   }
 
-  /**
-   * This retrieves the number of child rows and adds one to the value. It is used to set the order
-   * of a child row. For a *real* application, a more sophisticated approach is desired. This method
-   * does not allow for entity reordering and does not allow for an entity to be deleted.
-   * 
-   * @param conn The connection
-   * @param id The ID of the parent entity
-   * @param tableName The name of the table with the child rows
-   * @param idName The name of the parent ID field
-   * @return The count of the entities attached to the parent plus one
-   * @throws SQLException Thrown if an error occurs.
-   */
+
+
   protected Integer getNextSequenceNumber(Connection conn, Integer id, String tableName,
       String idName) throws SQLException {
     String sql = "SELECT COUNT(*) FROM " + tableName + " WHERE " + idName + " = ?";
